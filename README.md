@@ -11,6 +11,15 @@
 
 ---
 
+## AI-Assisted Workflows
+
+This project leveraged AI tools to streamline development and improve code quality:
+
+- **Warp**: Used for generating code comments, handling code errors, and fixing bugs (e.g., resolving issues with wallet connect integration). Warp's terminal AI features accelerated debugging and provided actionable suggestions for code improvements.
+- **Cursor**: Utilized for documentation, inline code analysis, and context-aware code suggestions. Cursor helped ensure code clarity, maintainability, and adherence to best practices throughout the project.
+
+---
+
 ## Codigo Escrow Template
 
 A reusable React frontend template for Solana escrow programs, designed for rapid integration with the Codigo platform and Solana blockchain.
