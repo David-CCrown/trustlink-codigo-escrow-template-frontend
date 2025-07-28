@@ -1,0 +1,227 @@
+/* Host Grotesk Font Configuration */
+/* This file contains all font face declarations for Host Grotesk variants */
+/* Includes both variable fonts and static weights for maximum browser compatibility */
+
+/* Variable Fonts (Modern browsers with variable font support) */
+@font-face {
+  font-family: 'Host Grotesk';
+  src: url('/fonts/Host_Grotesk/HostGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Host Grotesk';
+  src: url('/fonts/Host_Grotesk/HostGrotesk-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Static Font Fallbacks */
+@font-face {
+  font-family: 'Host Grotesk Static';
+  src: url('/fonts/Host_Grotesk/static/HostGrotesk-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Host Grotesk Static';
+  src: url('/fonts/Host_Grotesk/static/HostGrotesk-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Host Grotesk Static';
+  src: url('/fonts/Host_Grotesk/static/HostGrotesk-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Host Grotesk Static';
+  src: url('/fonts/Host_Grotesk/static/HostGrotesk-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Host Grotesk Static';
+  src: url('/fonts/Host_Grotesk/static/HostGrotesk-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Host Grotesk Static';
+  src: url('/fonts/Host_Grotesk/static/HostGrotesk-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Host Grotesk Static';
+  src: url('/fonts/Host_Grotesk/static/HostGrotesk-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Host Grotesk Static';
+  src: url('/fonts/Host_Grotesk/static/HostGrotesk-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Host Grotesk Static';
+  src: url('/fonts/Host_Grotesk/static/HostGrotesk-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Host Grotesk Static';
+  src: url('/fonts/Host_Grotesk/static/HostGrotesk-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Host Grotesk Static';
+  src: url('/fonts/Host_Grotesk/static/HostGrotesk-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Host Grotesk Static';
+  src: url('/fonts/Host_Grotesk/static/HostGrotesk-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* CSS Custom Properties for Font Configuration */
+:root {
+  /* Font Families */
+  --font-host-grotesk: 'Host Grotesk', 'Host Grotesk Static', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-host-grotesk-static: 'Host Grotesk Static', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+}
+
+/* Utility Classes for Typography */
+.font-host-grotesk {
+  font-family: var(--font-host-grotesk);
+}
+
+.font-host-grotesk-static {
+  font-family: var(--font-host-grotesk-static);
+}
+
+/* Weight Classes */
+.font-light { font-weight: var(--font-weight-light); }
+.font-regular { font-weight: var(--font-weight-regular); }
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+.font-extrabold { font-weight: var(--font-weight-extrabold); }
+
+/* Typography Scale Classes */
+.text-h1 {
+  font-family: var(--font-host-grotesk);
+  font-weight: var(--font-weight-bold);
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.text-h2 {
+  font-family: var(--font-host-grotesk);
+  font-weight: var(--font-weight-semibold);
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+.text-h3 {
+  font-family: var(--font-host-grotesk);
+  font-weight: var(--font-weight-semibold);
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.text-h4 {
+  font-family: var(--font-host-grotesk);
+  font-weight: var(--font-weight-medium);
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.text-h5 {
+  font-family: var(--font-host-grotesk);
+  font-weight: var(--font-weight-medium);
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.text-h6 {
+  font-family: var(--font-host-grotesk);
+  font-weight: var(--font-weight-medium);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.text-body {
+  font-family: var(--font-host-grotesk);
+  font-weight: var(--font-weight-regular);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.text-body-large {
+  font-family: var(--font-host-grotesk);
+  font-weight: var(--font-weight-regular);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.text-body-small {
+  font-family: var(--font-host-grotesk);
+  font-weight: var(--font-weight-regular);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.text-button {
+  font-family: var(--font-host-grotesk);
+  font-weight: var(--font-weight-medium);
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.text-caption {
+  font-family: var(--font-host-grotesk);
+  font-weight: var(--font-weight-regular);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}

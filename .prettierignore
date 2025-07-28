@@ -1,0 +1,13 @@
+dist/
+node_modules/
+.env
+.env.local
+.env.production
+.env.development
+coverage/
+.nyc_output/
+*.log
+*.tgz
+*.tar.gz
+public/
+build/

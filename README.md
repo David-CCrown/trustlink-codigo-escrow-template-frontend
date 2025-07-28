@@ -1,119 +1,68 @@
-# Codigo Escrow Frontend – Superteam Nigeria DevQuest
+# Trustlink
 
-A professional React frontend for the Codigo Escrow template, built for the Superteam Nigeria DevQuest hackathon.
-
----
-
-## Overview
-
-This project delivers a seamless escrow experience on Solana, enabling users to securely create, accept, and manage escrow deals with SOL or SPL tokens. Built with a modern React stack, it integrates wallet connectivity and leverages Solana's PDA and Token Program for secure, trustless transactions.
+**Trustlink** is a secure, user-friendly escrow dApp built on Solana, designed to facilitate safe and transparent transactions between parties. Leveraging the power of the Codigo platform, Trustlink enables users to create, manage, and settle escrow agreements with confidence, ensuring funds are only released when all conditions are met.
 
 ---
 
-## Features
+## AI Tool(s) Used
 
-- 🔗 **Wallet Connect:** Supports Phantom wallet via Solana Wallet Adapter.
-- 📝 **Create Escrow Deals:** Initiate new escrow agreements with optional memos.
-- 🤝 **Accept Deals:** Counterparties can accept and fund deals.
-- 💸 **Withdraw or Cancel:** Parties can withdraw funds or cancel deals as per escrow state.
-- 💡 **SPL & SOL Support:** Handles both native SOL and SPL tokens.
-- 🖥️ **Responsive UI:** Built with TailwindCSS for a modern, mobile-friendly interface.
+- **Warp**: Terminal interfacing, comment generation
+- **Cursor**: Documentation, code assistance
 
 ---
 
-## Tech Stack
+## Codigo Escrow Template
 
-| Technology            | Purpose                                  |
-|-----------------------|------------------------------------------|
-| React + Vite          | Frontend framework & tooling             |
-| TailwindCSS           | Styling & responsive design              |
-| @solana/web3.js       | Solana blockchain interactions           |
-| Solana Wallet Adapter | Wallet connection (Phantom, etc.)        |
-| Solana Token Program  | SPL token escrow functionality           |
-
----
-
-## How It Works
-
-1. **Connect Wallet:**  
-  Users connect their Phantom wallet to the app.
-
-2. **Create Escrow:**  
-  Fill in deal details (amount, recipient, optional memo) and submit. Funds are held in a PDA-controlled escrow account.
-
-3. **Accept Deal:**  
-  The counterparty reviews and accepts the deal, confirming participation.
-
-4. **Withdraw or Cancel:**  
-  Upon deal completion or cancellation, funds are released or returned according to the escrow logic.
-
----
-
-## Screenshots
-
-> _Add screenshots here_  
-> ![Screenshot Placeholder](./screenshots/escrow-demo.png)
+A reusable React frontend template for Solana escrow programs, designed for rapid integration with the Codigo platform and Solana blockchain.
 
 ---
 
 ## Getting Started
 
-1. **Clone the repository:**
-  ```bash
-  git clone https://github.com/your-org/codigo-escrow-frontend.git
-  cd codigo-escrow-frontend
-  ```
+### 1. Install Dependencies
 
-2. **Install dependencies:**
-  ```bash
-  npm install
-  ```
+```bash
+npm install
+```
 
-3. **Configure environment:**
-  - Update Solana RPC endpoint and program addresses in `.env`.
+### 2. Run the Development Server
 
-4. **Run the app:**
-  ```bash
-  npm run dev
-  ```
+```bash
+npm run dev
+```
 
----
+The app will be available at [http://localhost:5173](http://localhost:5173) by default.
 
-## Demo
+### 3. Build for Production
 
-> _Live demo link:_ [https://your-demo-link.com](https://your-demo-link.com)
+```bash
+npm run build
+```
 
 ---
 
-## AI Tools Used
+## Configuring the Solana Program ID
 
-| Tool              | Purpose                        |
-|-------------------|-------------------------------|
-| GitHub Copilot    | Code generation & suggestions  |
-| ChatGPT           | Prompt refinement & docs       |
+The Solana program ID and network are configured in [`src/config/program.ts`](src/config/program.ts):
 
----
+- **Change the network** by editing the `NETWORK` field (`'devnet'`, `'testnet'`, or `'mainnet-beta'`).
+- **Set your deployed program ID** by updating the `PROGRAM_IDS` object for the relevant network.
 
-## Submission Info
+Example:
 
-- **Hackathon:** Superteam Nigeria DevQuest
-- **Team:** Codigo x Superteam Nigeria
-- **Wallet Address:** `YOUR_WALLET_ADDRESS_HERE`
-- **Prompt History:**  
-  - Initial README structure and requirements provided.
-  - Iterative improvements using AI tools for clarity and formatting.
+```ts
+export const PROGRAM_CONFIG = {
+  NETWORK: 'devnet', // or 'testnet', 'mainnet-beta'
+  PROGRAM_IDS: {
+    devnet: new PublicKey('YourDeployedProgramIdHere'),
+    // ...
+  },
+  // ...
+};
+```
 
----
-
-## Future Ideas for Expansion
-
-- Multi-signature escrow support
-- Email/SMS notifications for deal updates
-- In-app deal chat or messaging
-- Support for additional wallets (e.g., Solflare)
-- Analytics dashboard for escrow activity
-- Mobile app version
+The app will automatically use the correct program ID and RPC endpoint based on this configuration.
 
 ---
 
-> For questions or contributions, please open an issue or submit a pull request.
+For more details, see inline comments in [`src/config/program.ts`](src/config/program.ts).
