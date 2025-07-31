@@ -142,6 +142,21 @@ export default function CreateEscrow() {
             <h2 className="text-2xl font-bold text-foreground mb-8">
               Create New Escrow
             </h2>
+            
+            {/* Wallet Connection Status */}
+            {!isConnected && (
+              <div className="mb-6 p-4 bg-warning/10 border border-warning/20 rounded-xl">
+                <div className="flex items-center gap-2 mb-2">
+                  <AlertTriangle className="w-4 h-4 text-warning" />
+                  <span className="text-sm font-medium text-warning">
+                    Wallet Required
+                  </span>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Please connect your Solana wallet to create an escrow transaction.
+                </p>
+              </div>
+            )}
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Validation Errors */}
               {Object.keys(errors).length > 0 && (
@@ -260,8 +275,9 @@ export default function CreateEscrow() {
                 fullWidth
                 className="mt-4 text-lg"
                 rightIcon={<ArrowRight className="w-5 h-5" />}
+                disabled={!isConnected}
               >
-                Create Escrow
+                {isConnected ? 'Create Escrow' : 'Connect Wallet to Create Escrow'}
               </Button>
             </form>
           </section>

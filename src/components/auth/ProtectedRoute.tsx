@@ -27,10 +27,13 @@ interface ProtectedRouteProps {
  * 3. Connected - Renders the protected content
  */
 export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  const { connected, connecting, publicKey } = useWallet();
+  const { connected, connecting, publicKey, signTransaction } = useWallet();
   const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
   const [isInitializing, setIsInitializing] = useState(true);
   const location = useLocation();
+
+  // More strict wallet connection check - same as useEscrowProgram
+  const isFullyConnected = connected && publicKey && signTransaction;
 
   // Handle wallet adapter initialization
   useEffect(() => {
@@ -44,11 +47,11 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   // Auto-redirect to home if we're on a protected route and not connected
   // This prevents users from bookmarking protected URLs
   useEffect(() => {
-    if (!isInitializing && !connected && !connecting) {
+    if (!isInitializing && !isFullyConnected && !connecting) {
       // Store the attempted route for redirect after connection
       sessionStorage.setItem('redirectAfterAuth', location.pathname);
     }
-  }, [connected, connecting, isInitializing, location.pathname]);
+  }, [isFullyConnected, connecting, isInitializing, location.pathname]);
 
   // Show loading screen during initialization or connection
   if (isInitializing || connecting) {
@@ -69,8 +72,27 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
     );
   }
 
-  // Show wallet connection prompt if not connected
-  if (!connected) {
+  // Show loading screen if partially connected (wallet adapter says connected but missing key components)
+  if (connected && (!publicKey || !signTransaction)) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="text-center space-y-4">
+          <div className="w-16 h-16 bg-warning/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Loader2 className="w-8 h-8 text-warning animate-spin" />
+          </div>
+          <h2 className="text-xl font-semibold text-foreground">
+            Finalizing Wallet Connection
+          </h2>
+          <p className="text-muted-foreground max-w-md mx-auto">
+            Your wallet is connected but we're waiting for full access. Please ensure your wallet is unlocked...
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  // Show wallet connection prompt if not fully connected
+  if (!isFullyConnected) {
     return (
       <>
         <div className="min-h-screen flex items-center justify-center bg-background px-4">
