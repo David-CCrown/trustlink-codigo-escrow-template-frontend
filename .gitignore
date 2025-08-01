@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# Local development files
+solana-prog-spec.md
+design-spec.md
