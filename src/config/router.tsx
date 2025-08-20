@@ -1,6 +1,6 @@
 /**
  * React Router Configuration for Codigo Escrow Template
- * 
+ *
  * @author David James
  * @email ccrowndavid@gmail.com
  * @github https://www.github.com/David-CCrown

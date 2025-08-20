@@ -1,6 +1,6 @@
 /**
  * Solana Program Configuration for Codigo Escrow Template
- * 
+ *
  * @author David James
  * @email ccrowndavid@gmail.com
  * @github https://www.github.com/David-CCrown
@@ -16,24 +16,24 @@ type SolanaNetwork = 'devnet' | 'testnet' | 'mainnet-beta';
 
 /**
  * Centralized configuration for Solana program deployment across networks
- * 
+ *
  * Contains program IDs, RPC endpoints, and network-specific settings.
  * Update PROGRAM_IDS with actual deployed program addresses.
  */
 export const PROGRAM_CONFIG = {
   /** Current network environment - change this to switch networks */
   NETWORK: 'devnet' as SolanaNetwork,
-  
-  /** 
+
+  /**
    * Program IDs for each network environment
    * TODO: Replace placeholder addresses with actual deployed program IDs
    */
   PROGRAM_IDS: {
-    devnet: new PublicKey('11111111111111111111111111111111'),
+    devnet: new PublicKey('11111111111111111111111111111112'),
     testnet: new PublicKey('11111111111111111111111111111111'),
     'mainnet-beta': new PublicKey('11111111111111111111111111111111'),
   },
-  
+
   /**
    * Get the program ID for the currently configured network
    * @returns PublicKey of the escrow program for current network
@@ -41,21 +41,21 @@ export const PROGRAM_CONFIG = {
   getProgramId(): PublicKey {
     return this.PROGRAM_IDS[this.NETWORK];
   },
-  
+
   /** RPC endpoint URLs for each Solana network */
   RPC_ENDPOINTS: {
     devnet: 'https://api.devnet.solana.com',
     testnet: 'https://api.testnet.solana.com',
     'mainnet-beta': 'https://api.mainnet-beta.solana.com',
   },
-  
+
   /**
    * Get the RPC endpoint URL for the currently configured network
    * @returns RPC endpoint URL string
    */
   getRpcEndpoint(): string {
     return this.RPC_ENDPOINTS[this.NETWORK];
-  }
+  },
 };
 
 /**
@@ -84,7 +84,7 @@ export const TOKEN_ADDRESSES = {
     SOL: new PublicKey('So11111111111111111111111111111111111111112'),
     /** Production BONK mint address */
     BONK: new PublicKey('DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263'),
-  }
+  },
 };
 
 /**

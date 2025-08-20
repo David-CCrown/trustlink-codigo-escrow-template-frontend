@@ -1,6 +1,6 @@
 /**
  * Application Layout Component for Codigo Escrow Template
- * 
+ *
  * @author David James
  * @email ccrowndavid@gmail.com
  * @github https://www.github.com/David-CCrown
@@ -18,7 +18,8 @@ const AppLayout = () => {
   const location = useLocation();
 
   // Check if program is deployed
-  const isProgramDeployed = ESCROW_PROGRAM_ID.toBase58() !== '11111111111111111111111111111111';
+  const isProgramDeployed =
+    ESCROW_PROGRAM_ID.toBase58() !== '11111111111111111111111111111111';
 
   // Show program not deployed screen if program is not ready
   if (!isProgramDeployed) {
